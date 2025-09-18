@@ -6,6 +6,8 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
+import java.lang.reflect.Method;
+import java.util.Arrays;
 
 
 public class AnnotationPractice {
@@ -38,8 +40,20 @@ public class AnnotationPractice {
     }
 
     public static void main(String[] args) {
-        TestClass testClass = new TestClass();
-        testClass.normalMethod();
-        testClass.importantMethod();
+//        TestClass testClass = new TestClass();
+//        testClass.normalMethod();
+//        testClass.importantMethod();
+        try {
+            Method method = TestClass.class.getMethod("importantMethod");
+            if (method.isAnnotationPresent(MyCustomAnnotation.class)) {
+                MyCustomAnnotation annotation = method.getAnnotation(MyCustomAnnotation.class);
+                String value = annotation.value();
+                String[] tags = annotation.tags();
+                System.out.println("value: " + value);
+                System.out.println("tags: " + Arrays.toString(tags));
+            }
+        } catch(Exception e) {
+            e.printStackTrace();
+        }
     }
 }

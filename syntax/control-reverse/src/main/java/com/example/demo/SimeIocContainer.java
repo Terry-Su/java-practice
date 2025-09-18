@@ -7,7 +7,7 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SimeIocContainer {
+public class SimpleIocContainer {
     // 存储已注册的Bean定义
     private Map<String, BeanDefinition> beanDefinitions = new HashMap<>();
     // 存储已创建的Bean实例
