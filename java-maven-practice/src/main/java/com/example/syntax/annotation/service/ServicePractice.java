@@ -1,31 +1,21 @@
-package com.example.syntax.annotation;
+package com.example.syntax.annotation.service;
 
-import com.example.syntax.start.StartPractice;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.stereotype.Service;
 
-
+@SpringBootApplication
 public class ServicePractice {
-    @Service
-    public class MyService {
-        @Value("${app.security.jwt.secret-key}")
-        private String secretKey;
 
-        @Value("${app.security.jwt.expiration-ms}")
-        private long expirationMs;
-    }
 
-    @SpringBootApplication
-    public class Practice {
-        public static void main(String[] args) {
-            SpringApplication app = new SpringApplication(Practice.class);
-            app.run();
-        }
-    }
 
     public static void main(String[] args) {
-        Practice practice = new Practice();
+        SpringApplication app = new SpringApplication(ServicePractice.class);
+        ConfigurableApplicationContext context = app.run();
+
+        MyService myService = context.getBean(MyService.class);
+        System.out.println("App Name = " + myService.getAppName());
     }
 }
