@@ -1,13 +1,18 @@
 package com.example.demo.实现方式3;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 /*
 * 使用spring注解
 * */
+@Component
 public class Person {
-    private com.example.demo.实现方式3spring框架.Tool tool;
+    // 字段上标记注解，由框架自动注入
+    @Autowired
+    private com.example.demo.实现方式3.Tool tool;
 
-    // Setter 方法用于注入依赖
-    public void SetTool(com.example.demo.实现方式3.Tool tool) {
-        this.tool = tool;
+    public void Run() {
+        tool.Work();
     }
 }

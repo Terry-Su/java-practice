@@ -1,13 +1,13 @@
-package com.example.demo.实现方式1;
+package com.example.demo.实现方式2;
 
 /*
-* 使用初始化函数
+* 使用set方法
 * */
 public class Person {
     private Tool tool;
 
-    // 构造器接收依赖（由外部传入）
-    public Person(Tool tool) {
+    // Setter 方法用于注入依赖
+    public void SetTool(Tool tool) {
         this.tool = tool;
     }
 }
