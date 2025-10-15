@@ -1,39 +1,45 @@
 package syntax;
-import lombok.*;
 
 import java.util.ArrayList;
+import lombok.*;
 
 
 
-public class SynchronizedSyntax {
+
+public class SynchronizedSyntax2 {
     @Getter
     static class Counter {
-        private int count = 0;
-        public void increment() {
+        private static int count = 0;
+        public static void increment() {
             count++;
         }
-        public int getCount() {
+        public static int getCount() {
             return count;
         }
     }
 
     @Getter
-    static class Counter2 extends Counter {
-        private int count = 0;
-        public synchronized void increment() {
+    static class Counter2 extends Counter{
+        private static int count = 0;
+        public synchronized static void increment() {
             count++;
         }
-        public int getCount() {
+        public synchronized static int getCount() {
             return count;
         }
     }
 
-    private static void exampleCommon(Counter counter) {
+    private static void exampleCommon(Boolean useSynchronized) {
         ArrayList<Thread> threadList = new ArrayList<Thread>();
         for (int i = 0; i < 1000; i++) {
             Thread t1 = new Thread(() -> {
                 for (int j = 0; j < 1000; j++) {
-                    counter.increment();
+                    if (!useSynchronized) {
+                        Counter.increment();
+                    }else {
+                        Counter2.increment();
+                    }
+
                 }
             }, "t1");
             threadList.add(t1);
@@ -48,18 +54,21 @@ public class SynchronizedSyntax {
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
-            System.out.println(counter.getCount()); //小于预期值
+            if (!useSynchronized) {
+                System.out.println(Counter.getCount());
+            }else {
+                System.out.println(Counter2.getCount());
+            }
         }
     }
 
     private static void conflictExample() {
         Counter counter = new Counter();
-        exampleCommon(counter);
+        exampleCommon(false);
     }
 
     private static void nonConflictExample() {
-        Counter counter2 = new Counter2();
-        exampleCommon(counter2);
+        exampleCommon(true);
     }
 
     public static void main(String[] args) {

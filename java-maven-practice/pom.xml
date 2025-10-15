@@ -46,6 +46,13 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.30</version> <!-- 使用最新版本 -->
+			<scope>provided</scope> <!-- 重要：因为它只在编译时使用，不需要打包 -->
+		</dependency>
 	</dependencies>
 
 	<build>
