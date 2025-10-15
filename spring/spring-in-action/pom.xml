@@ -53,6 +53,12 @@
 			<version>1.18.30</version> <!-- 使用最新版本 -->
 			<scope>provided</scope> <!-- 重要：因为它只在编译时使用，不需要打包 -->
 		</dependency>
+
+		<!-- 对于 Thymeleaf -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
