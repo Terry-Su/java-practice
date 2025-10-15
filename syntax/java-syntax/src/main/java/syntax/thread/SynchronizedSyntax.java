@@ -1,4 +1,4 @@
-package syntax;
+package syntax.thread;
 import lombok.*;
 
 import java.util.ArrayList;

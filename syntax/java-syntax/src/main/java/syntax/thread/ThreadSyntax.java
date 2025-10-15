@@ -1,4 +1,4 @@
-package syntax;
+package syntax.thread;
 
 public class ThreadSyntax {
     public static void main(String[] args) {
