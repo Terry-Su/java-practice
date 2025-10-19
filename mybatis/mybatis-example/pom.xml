@@ -53,6 +53,19 @@
 			<version>1.18.30</version> <!-- 使用最新版本 -->
 			<scope>provided</scope> <!-- 重要：因为它只在编译时使用，不需要打包 -->
 		</dependency>
+
+		<!-- MyBatis 核心 -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+			<version>3.5.13</version> <!-- 建议使用当前最新稳定版本 -->
+		</dependency>
+		<!-- MySQL 驱动 -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.33</version> <!-- 请确保与你的MySQL版本兼容 -->
+		</dependency>
 	</dependencies>
 
 	<build>
