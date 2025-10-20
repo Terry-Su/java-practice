@@ -6,7 +6,7 @@ public class Custom {
     public static void main(String[] args) {
         // 创建Spring容器
         AnnotationConfigApplicationContext context =
-                new AnnotationConfigApplicationContext(Custom.class);
+                new AnnotationConfigApplicationContext(AppConfig.class);
 
         // 获取计算器服务bean
         CalculatorService calculator = context.getBean(CalculatorService.class);
