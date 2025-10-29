@@ -26,7 +26,8 @@ public class MybatisExample {
             EmployeeMapper mapper = session.getMapper(EmployeeMapper.class);
 
             // 5. 调用 Mapper 接口方法执行查询
-            Employee employee = mapper.selectEmployee(1);
+//            Employee employee = mapper.selectEmployee(1);
+            Employee employee = mapper.selectEmployeeById(1);
 
             // 6. 输出结果
             System.out.println("员工姓名：" + employee.getEmpName());
