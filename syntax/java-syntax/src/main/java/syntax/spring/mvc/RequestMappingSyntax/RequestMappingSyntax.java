@@ -20,9 +20,14 @@ public class RequestMappingSyntax {
             return "GET: Hello!";
         }
 
-        // curl -X GET http://localhost:8081/greet
+        // curl -X POST http://localhost:8081/greet
         @RequestMapping(value="/greet",method= RequestMethod.POST)
         public String greetPost() {
+            return "POST: Hello!";
+        }
+
+        @PostMapping(value="/greet2")
+        public String greetPost2() {
             return "POST: Hello!";
         }
 
