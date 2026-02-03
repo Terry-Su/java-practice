@@ -9,8 +9,9 @@ class Counter {
 
 public class Tmp {
     public static void main(String[] args) {
-        Counter c = new Counter();
-        c.addCount();
-        System.out.println(c.count);
+//        Counter c = new Counter();
+//        c.addCount();
+//        System.out.println(c.count);
+        System.out.println("".isEmpty());
     }
 }
