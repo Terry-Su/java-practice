@@ -7,6 +7,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.context.ApplicationContext;
 
 
 @SpringBootApplication
@@ -15,8 +16,8 @@ public class PropertyExample {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(com.example.syntax.property.PropertyExample.class, args);
-        MyAppProperties properties = new MyAppProperties();
+        ApplicationContext context = SpringApplication.run(com.example.syntax.property.PropertyExample.class, args);
+        MyAppProperties properties = context.getBean(MyAppProperties.class);
         System.out.println("App Name: " + properties.getName());
         System.out.println("App Version: " + properties.getVersion());
         System.out.println("Enabled: " + properties.isEnabled());
