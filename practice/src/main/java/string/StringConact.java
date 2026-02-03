@@ -1,5 +1,8 @@
 package string;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class StringConact {
     public static void main(String[] args) {
         String a = "hello";
@@ -28,7 +31,11 @@ public class StringConact {
         sbu.append(c);
         System.out.println(sbu.toString());
 
+        //  String.join ()（线程安全，JDK 8+，适合集合 / 固定分隔符拼接）
+        System.out.println(String.join(" ", a, b, ""+c));
+        System.out.println(String.join(" ", Arrays.asList(a,b,""+c)));
 
-
+        // String.format ()（线程安全，格式化拼接，适合复杂格式）
+        System.out.println(String.format("%s %s %d", a, b, c));
     }
 }
