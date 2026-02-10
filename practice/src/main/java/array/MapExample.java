@@ -34,7 +34,11 @@ public class MapExample {
         m.forEach((k,v) -> System.out.printf("%d: %d\n",k,v));
 
         // #判断包含key
-        System.out.printf("has key 0:%b  has key 100:%b  whether empty1:%b,whether empty2:%b", m.containsKey(0), m.containsKey(100), m.isEmpty(), emptyMap.isEmpty());
+        System.out.printf("has key 0:%b  has key 100:%b  whether empty1:%b,whether empty2:%b\n", m.containsKey(0), m.containsKey(100), m.isEmpty(), emptyMap.isEmpty());
+
+        // #删除元素
+        m.remove(0);
+        System.out.println(m);
 
     }
 }
