@@ -8,7 +8,7 @@ public class ErrorExample {
     public static void main(String[] args) {
         FileReader reader = null;
         try {
-            reader = new FileReader("./test.txt");
+            reader = new FileReader("./read-test.txt");
             char[] buf = new char[1024];
             int length = reader.read(buf);
             System.out.println("content: " + new String(buf));
