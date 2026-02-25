@@ -1,0 +1,15 @@
+server:
+  port=8081
+# DataSource Config
+spring:
+  application:
+    name: demo
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.130.5:3306/practice-mybatis-plus
+    username: root
+    password: test001a
+  sql:
+    init:
+      schema-locations: classpath:schema.sql
+      data-locations: classpath:data.sql
