@@ -11,14 +11,17 @@ import redis.clients.jedis.Jedis;
 @RestController
 public class DemoApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// 基本使用
 		Jedis jedis = new Jedis("192.168.130.5", 6379);
 		jedis.auth("redistest");
-		jedis.set("key","value1");
-		jedis.setex("key", 10,"value1");
-		String value = jedis.get("key");
-		System.out.println("value:  " + value);
+		System.out.println("value:  " + jedis.get("key"));
+		jedis.setex("key", 5,"value2");
+		System.out.println("value:  " + jedis.get("key"));
+		Thread.sleep(1000*3);
+		jedis.setex("key", 5,"value3");
+		Thread.sleep(1000*4);
+		System.out.println("value:  " + jedis.get("key"));
 		jedis.close();
 	}
 }
