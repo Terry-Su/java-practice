@@ -1,5 +1,5 @@
 server:
-  port=8081
+  port: 8081
 # DataSource Config
 spring:
   application:
@@ -11,5 +11,5 @@ spring:
     password: test001a
   sql:
     init:
-      schema-locations: classpath:schema.sql
-      data-locations: classpath:data.sql
+      schema-locations: classpath:db/schema.sql
+      data-locations: classpath:db/data.sql
